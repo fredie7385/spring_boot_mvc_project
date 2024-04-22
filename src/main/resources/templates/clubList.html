@@ -1,0 +1,38 @@
+<!doctype html>
+<html
+        lang="en"
+        layout:decorate="~{layout}"
+        xmlns:layout="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <title> club list</title>
+</head>
+<body>
+<!--body section-->
+<section class="container-fluid" layout:fragment="body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card text-center" style="width: 18rem; padding:0.3rem; margin:0.5rem; height:27rem;"
+                 th:each="club:${clubs}">
+                <h5 class="card-header fw-bolder" th:text="${club.title}">{Heading}</h5>
+                <img
+                        alt=""
+                        class="object-fit-fill border rounded img-thumbnail"
+                        loading="lazy"
+                        style="width: 20rem; height: 15rem;"
+                        th:src="${club.photoUrl}"
+                >
+                <div class="card-body">
+                    <p class="card-text" th:text="${club.description}"></p>
+                    <div class>
+                        <a class="btn btn-outline-success" href="#">Update</a>
+                        <a class="btn btn-outline-danger" href="#">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

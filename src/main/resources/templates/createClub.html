@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title> newList </title>
+</head>
+<body>
+<!--body section-->
+<section class="container-fluid  mt-3" layout:fragment="body" style="width:40rem;">
+    <div class="container">
+        <div class="card text-center " style="padding-top:2rem">
+            <div class="card-header">
+                <h4 class="p-2"> Add Details</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" role="form" th:action="@{/clubs/new}" th:object="${club}">
+                    <div class="mb-3">
+                        <input class="form-control" id="title" name="title" placeholder="Enter Title"
+                               th:field="*{title}" type="text">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" id="photoUrl" name="photoUrl" placeholder="Enter PhotoUrl"
+                               th:field="*{photoUrl}" type="text">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="description" name="description" rows="3"
+                                  th:field="*{description}"></textarea>
+                    </div>
+                    <button class="btn btn-md btn-outline-success" type="submit">Add details</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
