@@ -6,7 +6,7 @@
         xmlns:th="http://www.w3.org/1999/xhtml"
 >
 <head>
-    <title> club list</title>
+    <title> Clubs List</title>
 </head>
 <body>
 <!--body section-->
@@ -27,9 +27,11 @@
                 <div class="card-body">
                     <p class="card-text" th:text="${club.description}"></p>
                     <div class>
+                        <a class="btn btn-outline-info"
+                           th:href="@{/clubs/{clubId}(clubId=${club.id})}">View</a>
                         <a class="btn btn-outline-success"
                            th:href="@{/clubs/{clubId}/update(clubId=${club.id})}">Update</a>
-                        <a class="btn btn-outline-danger" href="#">Delete</a>
+
                     </div>
                 </div>
             </div>

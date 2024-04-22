@@ -2,7 +2,7 @@
 <html lang="en" layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title> newList </title>
+    <title> add details</title>
 </head>
 <body>
 <!--body section-->
@@ -17,14 +17,18 @@
                     <div class="mb-3">
                         <input class="form-control" id="title" name="title" placeholder="Enter Title"
                                th:field="*{title}" type="text">
+                        <p class="text-danger" th:errors="*{title}" th:if="${#fields.hasErrors('title')}"></p>
                     </div>
                     <div class="mb-3">
                         <input class="form-control" id="photoUrl" name="photoUrl" placeholder="Enter PhotoUrl"
                                th:field="*{photoUrl}" type="text">
+                        <p class="text-danger" th:errors="*{photoUrl}" th:if="${#fields.hasErrors('photoUrl')}"></p>
                     </div>
                     <div class="mb-3">
                         <textarea class="form-control" id="description" name="description" rows="3"
                                   th:field="*{description}"></textarea>
+                        <p class="text-danger" th:errors="*{description}"
+                           th:if="${#fields.hasErrors('description')}"></p>
                     </div>
                     <button class="btn btn-md btn-outline-success" type="submit">Add details</button>
                 </form>
