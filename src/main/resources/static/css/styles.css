@@ -3,17 +3,21 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  padding-top:1.5rem;
+  padding-left:17px;
   width: 100%;
   min-height: 100vh;
   font-family: "Open Sans", sans-serif;
-  background: #f7f3f3;
+  background:red;
 }
 .navbar {
   background: #e7e6e6;
+  background: #f7f3f3;
 }
 .card {
   background-color: #ffffff;
 }
+
 
 #footer {
   position: fixed;

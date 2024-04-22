@@ -9,4 +9,8 @@ public interface ClubService {
     List<ClubDto> findAllClubs();
 
     void saveClub(Club club);
+
+    ClubDto findClubById(Long clubId);
+
+    void updateClub(ClubDto club);
 }

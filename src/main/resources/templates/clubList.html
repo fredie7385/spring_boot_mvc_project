@@ -13,7 +13,8 @@
 <section class="container-fluid" layout:fragment="body">
     <div class="container-fluid">
         <div class="row">
-            <div class="card text-center" style="width: 18rem; padding:0.3rem; margin:0.5rem; height:27rem;"
+            <div class="card text-center card-container"
+                 style="width: 18rem; padding:0.3rem; margin:0.1rem; height:27rem;"
                  th:each="club:${clubs}">
                 <h5 class="card-header fw-bolder" th:text="${club.title}">{Heading}</h5>
                 <img
@@ -26,7 +27,8 @@
                 <div class="card-body">
                     <p class="card-text" th:text="${club.description}"></p>
                     <div class>
-                        <a class="btn btn-outline-success" href="#">Update</a>
+                        <a class="btn btn-outline-success"
+                           th:href="@{/clubs/{clubId}/update(clubId=${club.id})}">Update</a>
                         <a class="btn btn-outline-danger" href="#">Delete</a>
                     </div>
                 </div>

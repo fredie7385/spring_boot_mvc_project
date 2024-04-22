@@ -6,10 +6,7 @@ import com.freddie.spring_boot_mvc_project.services.ClubService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.print.attribute.standard.PresentationDirection;
 import java.util.List;
@@ -24,7 +21,7 @@ public class ClubController {
         this.clubService = clubService;
     }
 
-    @GetMapping("/clubList")
+    @GetMapping("/clubs")
     public String ListClubs(Model model) {
         List<ClubDto> clubs = clubService.findAllClubs();
         model.addAttribute("clubs", clubs);
@@ -39,8 +36,22 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/new")
-    public String saveClubData(@ModelAttribute("club") Club club) {
+    public String saveClubForm(@ModelAttribute("club") Club club) {
         clubService.saveClub(club);
         return "redirect:/clubList";
+    }
+
+    @GetMapping("/clubs/{clubId}/update")
+    public String updateClubForm(@PathVariable("clubId") Long clubId, Model model) {
+        ClubDto club = clubService.findClubById(clubId);
+        model.addAttribute("club", club);
+        return "updateClub";
+    }
+
+    @PostMapping("/clubs/{clubId}/update")
+    public String updateClubFormData(@PathVariable("clubId") Long clubId, @ModelAttribute("club") ClubDto club) {
+        club.setId(Math.toIntExact(clubId));
+        clubService.updateClub(club);
+        return "redirect:/clubs";
     }
 }
